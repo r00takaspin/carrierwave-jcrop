@@ -1,7 +1,6 @@
 require "carrierwave/jcrop/version"
 require "carrierwave/jcrop/engine"
 require "carrierwave/jcrop/helpers"
-require 'pry'
 
 module CarrierWave
   module Jcrop
@@ -16,12 +15,7 @@ module CarrierWave
         [:crop_x,:crop_y,:crop_h,:crop_w].each do |coord|
           attr_accessor :"#{attachment}_#{coord}"
         end
-        '''
-        field :"#{attachment}_crop_x",type: Integer
-        field :"#{attachment}_crop_y",type: Integer
-        field :"#{attachment}_crop_h",type: Integer
-        field :"#{attachment}_crop_w",type: Integer
-        '''
+
         before_save do
           if cropping?(attachment)
             self.send(:"#{attachment}_crop_params=",{
