@@ -7,11 +7,11 @@ Fork of https://github.com/kirtithorat/carrierwave-crop gem
 
 Install the latest stable release:
 
-    $[sudo] gem install carrierwave-mongoid-jcrop
+    $[sudo] gem install carrierwave-jcrop
 
 In Rails, add it to your Gemfile:
 
-    gem 'carrierwave-mongoid-jcrop'
+    gem 'carrierwave-jcrop'
 
 And then execute:
 
