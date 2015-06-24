@@ -72,7 +72,13 @@ module CarrierWave
             img = self.object.send(attachment).url
           end
           img_id = "#{model_name}_#{attachment}_cropbox"
-          crop_image = @template.image_tag(img, :id => img_id)
+          img_styles = {}
+          if opts[:bg_color]
+            crop_image = @template.image_tag(img, :id => img_id,style:"background-color:#{opts[:bg_color]}")
+          else
+            crop_image = @template.image_tag(img, :id => img_id)
+          end
+
           box << @template.content_tag(:div, crop_image, wrapper_attributes)
           box << init_jcrop(img_id,attachment,object)
           box
